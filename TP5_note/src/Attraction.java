@@ -6,14 +6,12 @@ import java.util.Set;
  */
 public class Attraction {
 
-    private Quai quai;
     private Set<Navette> navettes;
     private int duree_arret = 7;
     private int duree_attraction = 3;
     private int max_places = 10;
 
-    public Attraction(Quai quai){
-        this.quai = quai;
+    public Attraction(){
         this.navettes = new HashSet<Navette>();
     }
 
