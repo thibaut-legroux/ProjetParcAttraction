@@ -6,13 +6,13 @@ public class Parc {
 	private int idAttraction = 0;
 	private Attraction[] attractions = new Attraction[maxAttraction];
 	private Client[] clients = new Client[nbClients];
-
+	Billetterie billeterie;
 	public Parc() {
 		while (nouvelleAttraction()) {}
-		Billetterie billeterie = new Billetterie(20);
+		 billeterie = new Billetterie(20);
 		while (nouveauClient()) {}
 		// Creer le responsable et l'endormir avant que les clients prennent des tickets
-		billeterie.getResponsableBilletterie().start();
+		billeterie.getResp().start();
 		
 		for(Client cl  : clients) {
 			cl.start();
@@ -36,7 +36,7 @@ public class Parc {
 			System.out.println("Le nombre maximum de clients est atteint.");
 			return false;
 		}
-		clients[idClient] = new Client(idClient, attractions[attraction1], attractions[attraction2]);
+		clients[idClient] = new Client(idClient,billeterie ,attractions[attraction1], attractions[attraction2]);
 		idClient++;
 		return true;
 	}

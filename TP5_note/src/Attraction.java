@@ -27,7 +27,7 @@ public class Attraction {
     }
     
     public void faire_attraction() {
-        while () {
+        while (true) {
             //A faire
         }
     }

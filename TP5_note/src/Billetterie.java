@@ -7,10 +7,10 @@ public class Billetterie {
 
 	public Billetterie(int tickets_dispo){
         this.nb_tickets_dispo=tickets_dispo;
-        responsableBilletterie = new ResponsableBilletterie(this);
+        responsableBilletterie = new ResponsableBilletterie( this);
     }
 
-	public void vendre_tickets(int nb_tickets, Client client) throws InterruptedException {
+	public void vendre_tickets(int nb_tickets, Client client)  {
 		while (nb_tickets > nb_tickets_dispo) {
 			try {
                 //On réveille tout le monde
@@ -39,9 +39,17 @@ public class Billetterie {
         }
 */
 	}
-
+public ResponsableBilletterie getResp(){
+	    return responsableBilletterie;
+}
 	public void recharger(int recharge_tickets) {
-		b.wait();
+
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 		nb_tickets_dispo += recharge_tickets;
 		imprimer();
         //Reveil les clients après rechargement des tickets

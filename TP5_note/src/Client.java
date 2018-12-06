@@ -1,3 +1,4 @@
+
 public class Client extends Thread {
 
     private int nb_client;
@@ -23,7 +24,7 @@ public class Client extends Thread {
     }
        
     public void run() {
-        vendre_tickets(nb_tickets, this);
+        b.vendre_tickets(6, this);
         aller_attraction();
         a1.faire_attraction();
         aller_attraction();

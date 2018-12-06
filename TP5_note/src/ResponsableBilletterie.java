@@ -1,9 +1,9 @@
 public class ResponsableBilletterie extends Thread {
 
-    private Billeterie b;
+    private Billetterie b;
     private final int ticketsRech = 20;
 
-    public ResponsableBilletterie(Billeterie b) {
+    public ResponsableBilletterie(Billetterie b) {
         this.b = b;
     }
     
