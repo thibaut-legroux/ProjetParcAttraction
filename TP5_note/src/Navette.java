@@ -1,8 +1,5 @@
 import static java.lang.Thread.sleep;
 
-/**
- * Created by 18004011 on 04/12/18.
- */
 public class Navette {
 
     protected int nb_places;
@@ -53,8 +50,7 @@ public class Quai {
                 navette.nb_places_dispo--;
                 navette.voyage();
             }
-
-
+            
             //client qui partent du quai car navette présente
             //attention le nombre de client sur le quai doit être >=0
         }
@@ -66,7 +62,5 @@ public class Quai {
 
         }
     }
-
-
 }
 */
