@@ -1,6 +1,6 @@
 import static java.lang.Thread.sleep;
 
-public class Navette {
+public class Navette extends Thread{
 
     protected int nb_places;
     protected int nb_places_dispo;

@@ -10,12 +10,6 @@ public class ResponsableBilletterie extends Thread {
     public void run() {
         //Boucle infinie
         while(true) {
-            try {
-                b.wait();
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
             b.recharger(ticketsRech);
         }
     }

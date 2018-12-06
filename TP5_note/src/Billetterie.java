@@ -41,6 +41,7 @@ public class Billetterie {
 	}
 
 	public void recharger(int recharge_tickets) {
+		b.wait();
 		nb_tickets_dispo += recharge_tickets;
 		imprimer();
         //Reveil les clients après rechargement des tickets
