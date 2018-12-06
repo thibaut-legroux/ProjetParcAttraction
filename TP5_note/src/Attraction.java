@@ -1,31 +1,34 @@
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by 18004011 on 04/12/18.
- */
 public class Attraction {
 
     private Set<Navette> navettes;
-    private int duree_arret = 7;
-    private int duree_attraction = 3;
-    private int max_places = 10;
+    private final int duree_arret = 5;
+    private final int duree_attraction = 5;
+    private final int max_places = 10;
+    private int idAttraction;
 
-    public Attraction(){
+    public Attraction(int idAttraction){
+        this.idAttraction = idAttraction;
         this.navettes = new HashSet<Navette>();
     }
-
+    
+    //Pas compris le if
     public void addNavette(Navette navette){
         if(navette.nb_places == max_places){
             this.navettes.add(navette);
         }
-
     }
-
+    
+    //Peut être avec faire_attraction ?
     public void charger_navette(int nb_clients){
 
     }
-
-
-
+    
+    public void faire_attraction() {
+        while () {
+            //A faire
+        }
+    }
 }
