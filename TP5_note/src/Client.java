@@ -1,6 +1,4 @@
-
 public class Client extends Thread {
-
     private int nb_client;
     private Billetterie b;
     private Attraction a1;
@@ -12,15 +10,13 @@ public class Client extends Thread {
         this.a1=a1;
         this.a2=a2;
     }
-
-    /** Même fonction que vendre_tickets dans Billetterie
-    public void acheter_Ticket(int nb_billet) throws InterruptedException {
-        billetterie.vendre_tickets(nb_billet, this);
-    }
-    */
     
     public void aller_attraction(){
-        //Temps d'aller à l'attraction
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
        
     public void run() {

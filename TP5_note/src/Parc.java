@@ -7,6 +7,7 @@ public class Parc {
 	private Attraction[] attractions = new Attraction[maxAttraction];
 	private Client[] clients = new Client[nbClients];
 	Billetterie billeterie;
+
 	public Parc() {
 		while (nouvelleAttraction()) {}
 		 billeterie = new Billetterie(20);
@@ -14,7 +15,7 @@ public class Parc {
 		// Creer le responsable et l'endormir avant que les clients prennent des tickets
 		billeterie.getResp().start();
 		
-		for(Client cl  : clients) {
+		for(Client cl : clients) {
 			cl.start();
 		}
 	}
