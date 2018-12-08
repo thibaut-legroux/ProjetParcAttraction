@@ -1,7 +1,6 @@
 public class Billetterie {
 	private int nb_tickets_dispo;
 	private ResponsableBilletterie responsableBilletterie;
-	private final int nb_tickets_recharge = 20;
 
 	public Billetterie(int tickets_dispo){
         this.nb_tickets_dispo=tickets_dispo;

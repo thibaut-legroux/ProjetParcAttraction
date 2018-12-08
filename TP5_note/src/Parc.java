@@ -1,16 +1,20 @@
 public class Parc {
 	private final int minClient = 10;
 	private final int maxAttraction = 10;
-	private final int nbClients = 20;
+	private int nbClients = 20;
 	private int idClient = 0;
 	private int idAttraction = 0;
 	private Attraction[] attractions = new Attraction[maxAttraction];
-	private Client[] clients = new Client[nbClients];
+	private Client[] clients;
 	Billetterie billeterie;
 
 	public Parc() {
+	    if(nbClients < minClient) {
+            nbClients = minClient;
+        }
+        clients = new Client[nbClients];
 		while (nouvelleAttraction()) {}
-		 billeterie = new Billetterie(20);
+		billeterie = new Billetterie(20);
 		while (nouveauClient()) {}
 		// Crée le responsable et l'endort avant que les clients prennent des tickets
 		billeterie.getResp().start();
