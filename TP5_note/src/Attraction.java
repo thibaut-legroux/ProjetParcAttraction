@@ -11,6 +11,7 @@ public class Attraction {
     public Attraction(int idAttract){
         this.idAttraction = idAttract;
         this.navettes = new HashSet<Navette>();
+        //On fixe le nombre de places aléatoirement des navettes par attractions
         int place = 1 + (int) (Math.random() * ((20 - 1) + 1));
         for(int i=0; i<nbNavette; i++) {
             Navette Nav = new Navette(this, place);
@@ -22,6 +23,7 @@ public class Attraction {
         }
     }
 
+    //Permet de savoir si une navette est à quai et laquelle
     public synchronized void aQuai(Navette N){
         while(Na != null) {
             try {
@@ -39,6 +41,7 @@ public class Attraction {
         }
     }
 
+    //Fait monter les clients un par un dans la navette
     public synchronized void charger_client() {
         while (Na == null || Na.getNb_places_dispo() == 0) {
             try {
@@ -51,6 +54,7 @@ public class Attraction {
         notifyAll();
     }
 
+    //Simulation de l'attraction avec un temps d'attente
     public void faire_attraction() {
         charger_client();
         try {
@@ -60,6 +64,7 @@ public class Attraction {
         }
     }
 
+    //Les clients descendent un par un de la navette après l'attraction
     public synchronized void client_descend(Navette N) {
         while(Na != N) {
             try {

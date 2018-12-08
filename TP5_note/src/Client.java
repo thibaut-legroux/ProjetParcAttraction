@@ -10,7 +10,8 @@ public class Client extends Thread {
         this.a1=a1;
         this.a2=a2;
     }
-    
+
+    //Simulation du fait de se rendre à une attraction
     public void aller_attraction(){
         try {
             Thread.sleep(100);
