@@ -3,7 +3,6 @@ import java.util.Set;
 
 public class Attraction {
     private Set<Navette> navettes;
-    private final int duree_arret = 5;
     private final int nbNavette = 3;
     private int idAttraction;
     private Navette Na;
