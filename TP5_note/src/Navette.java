@@ -1,16 +1,16 @@
-import static java.lang.Thread.sleep;
-
 public class Navette extends Thread{
     private int nb_places;
     private int nb_places_dispo;
     private Attraction attraction;
+    private int idNavette;
 
-    public Navette(Attraction A, int nb_places){
+    public Navette(Attraction A, int nb_places, int idNav){
         //Permet d'arrêter la boucle infinie lorsqu'il n'y a plus de client
-        this.setDaemon(true);
         this.attraction = A;
-        this.nb_places=nb_places;
+        this.nb_places = nb_places;
         nb_places_dispo = nb_places;
+        this.idNavette = idNav;
+        this.setDaemon(true);
     }
 
     //@return le nombre de places disponibles
@@ -35,6 +35,11 @@ public class Navette extends Thread{
     //Réinitialisation des places de la navette lorsque les clients descendent
     public void init_place() {
         nb_places_dispo = nb_places;
+    }
+
+    //@return le numéro de la navette
+    public int getIdNavette() {
+        return idNavette;
     }
 
     public void run() {

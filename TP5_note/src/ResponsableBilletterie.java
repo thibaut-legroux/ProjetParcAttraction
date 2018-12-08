@@ -4,8 +4,8 @@ public class ResponsableBilletterie extends Thread {
 
     public ResponsableBilletterie(Billetterie b) {
         //Permet d'arrêter la boucle infinie lorsqu'il n'y a plus de client
-        this.setDaemon(true);
         this.b = b;
+        this.setDaemon(true);
     }
     
     public void run() {

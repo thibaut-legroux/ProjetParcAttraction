@@ -23,7 +23,7 @@ public class Parc {
 	//Crée une nouvelle attraction si possible lorsque les précédents sont pleines
 	private boolean nouvelleAttraction() {       
 		if (maxAttraction == idAttraction) {
-			System.out.println("Le nombre maximum de clients est atteint.");
+			System.out.println("Le nombre maximal d'attractions est atteint.");
 			return false;
 		}
 		attractions[idAttraction] = new Attraction(idAttraction);
@@ -38,7 +38,7 @@ public class Parc {
 		int attraction1 = (int) (Math.random() * ((getMaxAttraction() - 1) + 1));
 		int attraction2 = (int) (Math.random() * ((getMaxAttraction() - 1) + 1));
 		if (nbClients == idClient) {
-			System.out.println("Le nombre maximum de clients est atteint.");
+			System.out.println("Le nombre maximal de clients est atteint.");
 			return false;
 		}
 		clients[idClient] = new Client(idClient, billeterie, attractions[attraction1], attractions[attraction2]);

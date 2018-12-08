@@ -4,7 +4,7 @@ import java.util.Set;
 public class Attraction {
     private Set<Navette> navettes;
     private final int duree_arret = 5;
-    private final int nbNavette = 4;
+    private final int nbNavette = 3;
     private int idAttraction;
     private Navette Na;
 
@@ -14,7 +14,7 @@ public class Attraction {
         //On fixe le nombre de places aléatoirement des navettes par attractions
         int place = 1 + (int) (Math.random() * ((20 - 1) + 1));
         for(int i=0; i<nbNavette; i++) {
-            Navette Nav = new Navette(this, place);
+            Navette Nav = new Navette(this, place, i);
             navettes.add(Nav);
         }
 
@@ -34,15 +34,15 @@ public class Attraction {
         }
         this.Na = N;
         try {
-            Thread.sleep(100);
             notifyAll();
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     //Fait monter les clients un par un dans la navette
-    public synchronized void charger_client() {
+    public synchronized void charger_client(Client client) {
         while (Na == null || Na.getNb_places_dispo() == 0) {
             try {
                 wait();
@@ -50,13 +50,14 @@ public class Attraction {
                 e.printStackTrace();
             }
         }
+        System.out.println("Le client " + client.getIdClient() + " est monté dans la navette " + Na.getIdNavette()
+                + " de l'attraction " + idAttraction + ".");
         Na.client_monte();
-        notifyAll();
     }
 
     //Simulation de l'attraction avec un temps d'attente
-    public void faire_attraction() {
-        charger_client();
+    public void faire_attraction(Client client) {
+        charger_client(client);
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
@@ -73,6 +74,8 @@ public class Attraction {
                 e.printStackTrace();
             }
         }
+        System.out.println("Les clients de la navette " + Na.getIdNavette() + " et de l'attraction "
+                + idAttraction + " sont descendus.");
         Na.init_place();
         Na = null;
         notifyAll();

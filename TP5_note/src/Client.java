@@ -19,12 +19,17 @@ public class Client extends Thread {
             e.printStackTrace();
         }
     }
+
+    //@return le numéro du client
+    public int getIdClient() {
+        return nb_client;
+    }
        
     public void run() {
-        b.vendre_tickets(6, this);
+        b.vendre_tickets(2, this);
         aller_attraction();
-        a1.faire_attraction();
+        a1.faire_attraction(this);
         aller_attraction();
-        a2.faire_attraction();
+        a2.faire_attraction(this);
     }
 }
