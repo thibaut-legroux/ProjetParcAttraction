@@ -1,3 +1,8 @@
+package internals;
+
+import internals.Attraction;
+import internals.Billetterie;
+
 public class Client extends Thread {
     private int nb_client;
     private Billetterie b;

@@ -1,3 +1,5 @@
+package internals;
+
 public class Parc {
 	private final int minClient = 10;
 	private final int maxAttraction = 10;

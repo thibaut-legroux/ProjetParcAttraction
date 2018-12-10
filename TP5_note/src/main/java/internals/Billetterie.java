@@ -1,3 +1,5 @@
+package internals;
+
 public class Billetterie {
 	private int nb_tickets_dispo;
 	private ResponsableBilletterie responsableBilletterie;
@@ -9,7 +11,7 @@ public class Billetterie {
 
     //Ventes des tickets à la billetterie
     //@param int nombre de tickets que le client souhaite
-    //@param Client qui définit le client qui soihaite acheter des tickets
+    //@param internals.Client qui définit le client qui soihaite acheter des tickets
 	public synchronized void vendre_tickets(int nb_tickets, Client client)  {
 		while (nb_tickets > nb_tickets_dispo) {
 			try {

@@ -1,3 +1,7 @@
+package internals;
+
+import internals.Billetterie;
+
 public class ResponsableBilletterie extends Thread {
     private Billetterie b;
     private final int ticketsRech = 20;

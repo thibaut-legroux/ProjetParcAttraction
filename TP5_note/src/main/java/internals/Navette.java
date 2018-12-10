@@ -1,3 +1,7 @@
+package internals;
+
+import internals.Attraction;
+
 public class Navette extends Thread{
     private int nb_places;
     private int nb_places_dispo;
